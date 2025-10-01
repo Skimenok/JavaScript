@@ -1,47 +1,40 @@
 // 1
-let task1 = 4656,
-  res = task1 % 2 === 0 ? "число чётное" : "число нечётное";
-console.log(`ответ 1 задачи: ${res}`);
+console.log("Задача 1");
+for (let i = 1; i <= 20; i++) {
+  if (i % 4 == 0) {
+    continue;
+  }
+  console.log(i);
+}
+
 // 2
+console.log("Задача 2");
 alert("Задача 2");
-let age = prompt("Введите свой возрост", 75);
-let discount = age < 18 ? 10 : (age <= 65 ? 20 : 30);
-alert(discount);
-switch (age) {
-  case age < 18:
-    discount = 10;
-    break;
-  case age >= 65:
-    discount = 20;
-    break;
-  default:
-    discount = 30;
+let x = +prompt("Введите число", 1),
+  factorialX = 1;
+for (x; x > 0; x--) {
+  factorialX = factorialX * x;
 }
+console.log(factorialX);
+
 // 3
-alert("Задача 3");
-let username = prompt("Введите имя пользователя", "гость"),
-  password = prompt("Введите пароль", 0);
-if ((username == "admin" || "user") && password == '123456') {
-  alert("Доступ разрешен");
-} else {
-  alert("Доступ запрещен")
+console.log("Задача 3");
+let board = "";
+row = 1;
+el = true;
+
+while (row < 9) {
+  for (let i = 0; i < 8; i++) {
+    if (el == true) {
+      board += "* ";
+      el = false;
+    } else {
+      board += "# ";
+      el = true;
+    }
+  }
+  board += "\n";
+  row++;
+  el = el == true ? false : true
 }
-// 4
-alert("Задача 4");
-let weight = prompt("вес посылки (в килограммах)", 0),
-  delivery = prompt('тип доставки. Допустимые варианты: "Стандарт" "Экспресс" "Премиум"', '');
-
-if (weight <= 0) {
-  alert("Некорректный вес посылки")
-}
-if (delivery != 'Стандарт' && delivery != 'Экспресс' && delivery != 'Премиум') {
-  alert("Неверный тип доставки")
-}
-
-const bas = weight < 1 ? 5 : (weight <= 5 ? 10 : 15);
-
-const coefficient =
-  delivery == "Стандарт" ? 1 : delivery == "Экспресс" ? 1.5 : 2;
-
-const result = bas * coefficient
-alert(result)
+console.log(board);
