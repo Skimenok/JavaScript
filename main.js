@@ -1,38 +1,51 @@
 // 1
-console.log("Задача 1");
-for (let i = 1; i <= 20; i++) {
-  if (i % 4 == 0) {
-    continue;
-  }
-  console.log(i);
+function calculateFinalPrice(basePrice, discountPercent, taxRate) {
+  let priceAfterDiscount = basePrice - (basePrice * discountPercent) / 100;
+  let finalPrice = priceAfterDiscount * (1 + taxRate);
+  return finalPrice;
 }
 
 // 2
-console.log("Задача 2");                                                                                              
-alert("Задача 2");                                                                                              
-let x = +prompt("Введите число", 1),                                                                                              
-  factorialX = 1;                                                                                              
-for (x; x > 0; x--) {                                                                                              
-  factorialX = factorialX * x;                                                                                              
-}                                                                                              
-console.log(factorialX);                                                                                              
+function checkAccess(login, password) {
+  if (login == "admin" && password == "123456") {
+    return "Доступ разрешен";
+  } else {
+    return "Доступ запрещен";
+  }
+}
 
 // 3
-console.log("Задача 3");
-let board = "",
-  el = true;
+function getTimeOfDay(time) {
+  switch (time) {
+    case time >= 0 && time <= 5:
+      console.log("Ночь");
+      break;
+    case time >= 6 && time <= 11:
+      console.log("Утро");
+      break;
+    case time >= 12 && time <= 17:
+      console.log("День");
+      break;
+    case time >= 18 && time <= 23:
+      console.log("Ночь");
+      break;
+    default:
+      console.log("Некорректное время");
+  }
+}
 
-for (let i = 1; i <= 8; i++) {
-  for (let i = 0; i < 8; i++) {
-    if (el == true) {
-      board += "* ";
-      el = false;
-    } else {
-      board += "# ";
-      el = true;
+//4
+function findFirstEven(start, end) {
+  let fist = 0;
+  for (start; start != end; start++) {
+    if (start % 2 == 0) {
+      fist = start;
+      break;
     }
   }
-  board += "\n";
-  el = el == true ? false : true;
+  if (start == 0) {
+    return "Чётных чисел нет";
+  } else {
+    return start;
+  }
 }
-console.log(board);
