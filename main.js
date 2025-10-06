@@ -1,51 +1,59 @@
 // 1
-function calculateFinalPrice(basePrice, discountPercent, taxRate) {
-  let priceAfterDiscount = basePrice - (basePrice * discountPercent) / 100;
-  let finalPrice = priceAfterDiscount * (1 + taxRate);
-  return finalPrice;
-}
+const person = {
+  name: "Илья",
+  age: 16,
+  isSchoolboy: true,
+  class: "10A",
+};
+console.log(person);
 
 // 2
-function checkAccess(login, password) {
-  if (login == "admin" && password == "123456") {
-    return "Доступ разрешен";
-  } else {
-    return "Доступ запрещен";
+const isEmpty = (list) => {
+  for (let key in list) {
+    return false;
   }
-}
+  return true;
+};
+let list = {};
+console.log(isEmpty(person));
 
 // 3
-function getTimeOfDay(time) {
-  switch (time) {
-    case time >= 0 && time <= 5:
-      console.log("Ночь");
-      break;
-    case time >= 6 && time <= 11:
-      console.log("Утро");
-      break;
-    case time >= 12 && time <= 17:
-      console.log("День");
-      break;
-    case time >= 18 && time <= 23:
-      console.log("Ночь");
-      break;
-    default:
-      console.log("Некорректное время");
-  }
+const task = {
+  title: "Выучить JavaScript",
+  description: "Пройти несколько практических задач",
+  isCompleted: false,
+};
+
+const cloneAndModify = (object, modifications) => {
+  const newObject = { ...object, ...modifications };
+  return newObject;
+};
+
+const updatedTask = cloneAndModify(task, {
+  isCompleted: true,
+  title: "Выучить JS до конца",
+});
+
+for (let key in updatedTask) {
+  console.log(`${key}: ${updatedTask[key]}`);
 }
 
-//4
-function findFirstEven(start, end) {
-  let fist = 0;
-  for (start; start != end; start++) {
-    if (start % 2 == 0) {
-      fist = start;
-      break;
+// 4
+const myObject = {
+  method1() {
+    console.log("Метод 1 вызван");
+  },
+  method2() {
+    console.log("Метод 2 вызван");
+  },
+  property: "Это не метод",
+};
+
+function callAllMethods(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] === "function") {
+      obj[key]();
     }
   }
-  if (start == 0) {
-    return "Чётных чисел нет";
-  } else {
-    return start;
-  }
 }
+callAllMethods(myObject);
