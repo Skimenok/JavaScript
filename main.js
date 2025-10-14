@@ -35,15 +35,17 @@ console.log(getAllAdmins(users))
 
 // 4
 const first = function (arr, n) {
-  if (n == 0) {
-    return []
-  } else if (n == undefined) {
-    return arr[1]
+  if (n === 0) {
+    return [];
+  } else if (n === undefined) {
+    return [arr[0]]; // возвращаем массив с первым элементом
   } else {
-    list = []
-    for (let i = 0; i < n - 1; i++) {
-      list.push(arr[i])
+    let list = [];
+    for (let i = 0; i < n; i++) {
+      // до n, а не n - 1
+      list.push(arr[i]);
     }
-    return list
+    return list;
   }
-}
+};
+
